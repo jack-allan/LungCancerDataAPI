@@ -3,6 +3,6 @@ Repository for working on the API(s) for running patient data through the lung c
 
 Contributors: Jack Allan, Natalie Lampa
 Contact: jackall@umich.edu, nlampa@umich.edu
-wOW
+
 
 Created: 10/23/17
