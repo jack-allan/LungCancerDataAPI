@@ -22,20 +22,21 @@ class patient:
 		id.bach_quit = h #0 no, 1 yes
 
 		#marcus model
-		id.marcus_sex = i
-		id.marcus_smok_durat = j
-		id.marcus_copd = k
-		id.marcus_prior_diag = l
-		id.marcus_early_onset = m
-		id.marcus_late_onset = n
+		id.marcus_age = i
+		id.marcus_sex = j
+		id.marcus_smok_durat = k
+		id.marcus_copd = l
+		id.marcus_prior_diag = m
+		id.marcus_early_onset = n
+		id.marcus_late_onset = o
 
 		#park model
-		id.park_age = o
-		id.park_smok_status = p
-		id.park_asi = q
-		id.park_bmi = r
-		id.park_phys_activ = s
-		id.park_fasting_gluc = t
+		id.park_age = p
+		id.park_smok_status = q
+		id.park_asi = r
+		id.park_bmi = s
+		id.park_phys_activ = t
+		id.park_fasting_gluc = u
 
 
 
@@ -60,9 +61,34 @@ class patient:
 
 
 >>>def marcus():
-	pass
+	
+	age = marcus_age
+	sex = marcus_sex
+	smokDurat = marcus_smok_durat
+	copd = marcus_copd
+	priorDiag = marcus_prior_diag
+	earlyOnset = marcus_early_onset
+	lateOnset = marcus_late_onset
+
+
+	#POST Command
+	#unpack what is returned
 
 
 
 >>>def park():
-	pass
+	
+	age = park_age
+	smokerStatus = park_smok_status
+	asi = park_asi
+	bmi = park_bmi
+	physActiv = park_phys_activ
+	fastingGluc = park_fasting_gluc
+
+
+	#POST Command
+	#unpack what is returned
+
+
+
+
