@@ -8,9 +8,20 @@
 
 import requests
 
-def url(path):
-    return 'https://' + path #for choosing local hosting or KGrid server for activator
-    #base url
+#base url for using kgrid server activartor
+url = "http://"
+
+headers = {
+    'content-type': "application/json",
+    'cache-control': "no-cache", #?
+    'postman-token': "830323d5-1a21-4458-50d7-e0c0b3bb55eb" #?
+    }
+
+#model specific urls
+bach_url
+marcus_url
+park_url
+
 
 
 class patient:
@@ -45,47 +56,48 @@ class patient:
 
 
 
-
+#how to make it patient specific/does it need to be patient specific if it is called line by line 
+	#and automatically written to the spreadsheet
 
  def bach(id, bach_age, bach_cpd, bach_yrs_smok, bach_yrs_quit, bach_asbestos, bach_sex, 
 		bach_quit):
 	
 
-	# if local, direct to repo and run
-	return bach.execute({"age":bach_age, "cpd":bach_cpd, "yrsSmok":bach_yrs_smok, "yrsQuit":bach_yrs_quit, 
-		asbestos":bach_asbestos, "sex":bach_sex, "quit":bach_quit})
-	
+	payload = "{\"age\":bach_age, \"cpd\":bach_cpd, \"yrsSmok\":bach_yrs_smok, \
+		\"yrsQuit\":bach_yrs_quit, \"asbestos\":bach_asbestos, \"sex\":bach_sex, \"quit\":bach_quit}" 
+		#?is this the right way to split up lines?
 
-	#POST Command for server
-	requests.post((url)/knowledgeObject/ark:/99999/fk4057tv7z/result)
-	headers = {"Content-Type": "application/json", "Accept": "application/json"}
-	#enter input into body
-	bach_response = requests.post()
-	#unpack what is returned
-	bach_data = json.loads(bach_response.content)
+	response = requests.request("POST", bach_url, data=payload headers=headers)
+	bach_data = json.loads(response.content)
 
+	return bach_data
 
 
 def marcus(id, marcus_age, marcus_sex, marcus_smok_durat, marcus_copd, marcus_prior_diag,
 		marcus_early_onset, marcus_late_onset):
 	
 
-	# if local, direct to repo and run
+	payload = "{\"age\":marcus_age,\"sex\":marcus_sex,\"smokDurat\":marcus_smok_durat,\
+		\"copd\":marcus_copd,\"priorDiag\":marcus_prior_diag,\"earlyOnset\":marcus_early_onset,\
+		\"lateOnset\":marcus_late_onset}"
 
+	response = requests.request("POST", url, data=payload, headers=headers)
+	marcus_data = json.loads(response.content)
 
-	#POST Command
-	#unpack what is returned
-
+	return marcus_data
 
 
 def park(id, park_age, park_smok_status, park_asi, park_bmi, park_phys_activ, park_fasting_gluc):
 
 
-	# if local, direct to repo and run
+	payload = "{\"age\":park_age,\"smokerStatus\":park_smok_status,\"asi\":park_asi,\
+		\"bmi\":park_bmi,\"physActiv\":park_phys_activ,\"fastingGluc\":park_fasting_gluc}"
 
 
-	#POST Command
-	#unpack what is returned
+	response = requests.request("POST", url, data=payload, headers=headers)
+	park_data = json.loads(response.content)
+
+	return park_data
 
 
 
