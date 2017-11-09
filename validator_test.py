@@ -9,7 +9,7 @@ validator_test.py
 #
 
 import requests
-from openpyxl import load_workbook
+#from openpyxl import load_workbook
 
 #base url for using kgrid server activartor
 url = "http://kgrid.med.umich.edu/stack/shelf/ark:/99999/"
@@ -31,41 +31,12 @@ park_url = url + "/fk4r49xd2g"
 #read in excel spreadsheet
 #assign values to variables
 
-# class patient:
-# 	"""A patient class containing all model variables"""
-
-# 	def __init__(id, b, c, d, e, f, g, h, i, j, k, l, m , n, o, p, q, r, s, t):
-# 		#bach model
-# 		id.bach_age = b
-# 		id.bach_cpd = c
-# 		id.bach_yrs_smok = d
-# 		id.bach_yrs_quit = e
-# 		id.bach_asbestos = f
-# 		id.bach_sex = g #0 male, 1 female 
-# 		id.bach_quit = h #0 no, 1 yes
-
-# 		#marcus model
-# 		id.marcus_age = i
-# 		id.marcus_sex = j
-# 		id.marcus_smok_durat = k
-# 		id.marcus_copd = l
-# 		id.marcus_prior_diag = m
-# 		id.marcus_early_onset = n
-# 		id.marcus_late_onset = o
-
-# 		#park model
-# 		id.park_age = p
-# 		id.park_smok_status = q
-# 		id.park_asi = r
-# 		id.park_bmi = s
-# 		id.park_phys_activ = t
-# 		id.park_fasting_gluc = u
 
 
 #how to make it patient specific/does it need to be patient specific if it is called line by line 
 	#and automatically written to the spreadsheet
 
-def bach(id, bach_age, bach_cpd, bach_yrs_smok, bach_yrs_quit, bach_asbestos, bach_sex, bach_quit):
+def bach(bach_age, bach_cpd, bach_yrs_smok, bach_yrs_quit, bach_asbestos, bach_sex, bach_quit):
 	
 
 
@@ -93,7 +64,7 @@ def marcus(marcus_age, marcus_sex, marcus_smok_durat, marcus_copd, marcus_prior_
 	return marcus_data
 
 
-def park(id, park_age, park_smok_status, park_asi, park_bmi, park_phys_activ, park_fasting_gluc):
+def park(park_age, park_smok_status, park_asi, park_bmi, park_phys_activ, park_fasting_gluc):
 
 
 	payload = "{\"age\":park_age,\"smokerStatus\":park_smok_status,\"asi\":park_asi,\
@@ -107,47 +78,46 @@ def park(id, park_age, park_smok_status, park_asi, park_bmi, park_phys_activ, pa
 
 def main():
 
-	xl_workbook = load_workbook(filename = 'three_mode_excel_template.xlsx')
-	ws = xl_workbook['Sheet0']
+	# xl_workbook = load_workbook(filename = 'three_mode_excel_template.xlsx')
+	# ws = xl_workbook['Sheet0']
 
-	while (ws.rows)
+	# while (ws.rows)
 		#row by row iteration
 		#assign all variables, call all model functions 
-		id = a.value
+	# id = 1
 
 		#bach model
-		bach_age = b.value
-		bach_cpd = c.value
-		bach_yrs_smok = d.value
-		bach_yrs_quit = e.value
-		bach_asbestos = f.value
-		bach_sex = g.value #0 male, 1 female 
-		bach_quit = h.value #0 no, 1 yes
+	bach_age = 50
+	bach_cpd = 1
+	bach_yrs_smok = 30
+	bach_yrs_quit = 0
+	bach_asbestos = 0
+	bach_sex = 0 #0 male, 1 female 
+	bach_quit = 0 #0 no, 1 yes
 
 		#marcus model
-		marcus_age = i.value
-		marcus_sex = j.value
-		marcus_smok_durat = k.value
-		marcus_copd = l.value
-		marcus_prior_diag = m.value
-		marcus_early_onset = n.value
-		marcus_late_onset = o.value
+	marcus_age = 50
+	marcus_sex = 1
+	marcus_smok_durat = 30
+	marcus_copd = 1
+	marcus_prior_diag = 0
+	marcus_early_onset = 0
+	marcus_late_onset = 0
 
 		#park model
-		park_age = p.value
-		park_smok_status = q.value
-		park_asi = r.value
-		park_bmi = s.value
-		park_phys_activ = t.value
-		park_fasting_gluc = u.value
+	park_age = 50
+	park_smok_status = 2
+	park_asi = 2
+	park_bmi = 0
+	park_phys_activ = 0
+	park_fasting_gluc = 0
 
-		v.value = bach(bach_age, bach_cpd, bach_yrs_smok, bach_yrs_quit, bach_asbestos, bach_sex, 
-		bach_quit)
+	v.value = bach(bach_age, bach_cpd, bach_yrs_smok, bach_yrs_quit, bach_asbestos, bach_sex, bach_quit)
 
-		w.value = marcus(marcus_age, marcus_sex, marcus_smok_durat, marcus_copd, marcus_prior_diag,
-		marcus_early_onset, marcus_late_onset)
+	w.value = marcus(marcus_age, marcus_sex, marcus_smok_durat, marcus_copd, marcus_prior_diag,
+	marcus_early_onset, marcus_late_onset)
 
-		x.value = park(park_age, park_smok_status, park_asi, park_bmi, park_phys_activ, park_fasting_gluc)
+	x.value = park(park_age, park_smok_status, park_asi, park_bmi, park_phys_activ, park_fasting_gluc)
 
 
 
