@@ -113,32 +113,43 @@ def main():
 		#row by row iteration
 		#assign all variables, call all model functions 
 		id = a.value
+
+		#bach model
 		bach_age = b.value
 		bach_cpd = c.value
 		bach_yrs_smok = d.value
 		bach_yrs_quit = e.value
-		bach_asbestos = f
-		id.bach_sex = g #0 male, 1 female 
-		id.bach_quit = h #0 no, 1 yes
+		bach_asbestos = f.value
+		id.bach_sex = g.value #0 male, 1 female 
+		id.bach_quit = h.value #0 no, 1 yes
 
 		#marcus model
-		id.marcus_age = i
-		id.marcus_sex = j
-		id.marcus_smok_durat = k
-		id.marcus_copd = l
-		id.marcus_prior_diag = m
-		id.marcus_early_onset = n
-		id.marcus_late_onset = o
+		id.marcus_age = i.value
+		id.marcus_sex = j.value
+		id.marcus_smok_durat = k.value
+		id.marcus_copd = l.value
+		id.marcus_prior_diag = m.value
+		id.marcus_early_onset = n.value
+		id.marcus_late_onset = o.value
 
 		#park model
-		id.park_age = p
-		id.park_smok_status = q
-		id.park_asi = r
-		id.park_bmi = s
-		id.park_phys_activ = t
-		id.park_fasting_gluc = u
+		id.park_age = p.value
+		id.park_smok_status = q.value
+		id.park_asi = r.value
+		id.park_bmi = s.value
+		id.park_phys_activ = t.value
+		id.park_fasting_gluc = u.value
 
-		v.value = bach()
+		v.value = bach(bach_age, bach_cpd, bach_yrs_smok, bach_yrs_quit, bach_asbestos, bach_sex, 
+		bach_quit)
+
+		w.value = marcus(marcus_age, marcus_sex, marcus_smok_durat, marcus_copd, marcus_prior_diag,
+		marcus_early_onset, marcus_late_onset)
+
+		x.value = park(park_age, park_smok_status, park_asi, park_bmi, park_phys_activ, park_fasting_gluc)
+
+
+
 
 
 
