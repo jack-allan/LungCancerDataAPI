@@ -7,6 +7,7 @@
 #
 
 import requests
+from openpyxl import load_workbook
 
 #base url for using kgrid server activartor
 url = "http://kgrid.med.umich.edu/stack/shelf/ark:/99999/"
@@ -77,7 +78,7 @@ class patient:
 	return bach_data
 
 
-def marcus(id, marcus_age, marcus_sex, marcus_smok_durat, marcus_copd, marcus_prior_diag,
+def marcus(marcus_age, marcus_sex, marcus_smok_durat, marcus_copd, marcus_prior_diag,
 		marcus_early_onset, marcus_late_onset):
 	
 
@@ -103,6 +104,53 @@ def park(id, park_age, park_smok_status, park_asi, park_bmi, park_phys_activ, pa
 
 	return park_data
 
+def main():
+
+	xl_workbook = load_workbook(filename = 'three_mode_excel_template.xlsx')
+	ws = xl_workbook['Sheet0']
+
+	while (ws.rows)
+		#row by row iteration
+		#assign all variables, call all model functions 
+		id = a.value
+		bach_age = b.value
+		bach_cpd = c.value
+		bach_yrs_smok = d.value
+		bach_yrs_quit = e.value
+		bach_asbestos = f
+		id.bach_sex = g #0 male, 1 female 
+		id.bach_quit = h #0 no, 1 yes
+
+		#marcus model
+		id.marcus_age = i
+		id.marcus_sex = j
+		id.marcus_smok_durat = k
+		id.marcus_copd = l
+		id.marcus_prior_diag = m
+		id.marcus_early_onset = n
+		id.marcus_late_onset = o
+
+		#park model
+		id.park_age = p
+		id.park_smok_status = q
+		id.park_asi = r
+		id.park_bmi = s
+		id.park_phys_activ = t
+		id.park_fasting_gluc = u
+
+		v.value = bach()
+
+
+
+	# test
+	print xl_workbook.get_sheet_names()
+	# loop
+
+
+
+
+
+main()
 
 
 
