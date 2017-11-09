@@ -9,20 +9,24 @@
 import requests
 
 #base url for using kgrid server activartor
-url = "http://"
+url = "http://kgrid.med.umich.edu/stack/shelf/ark:/99999/"
 
 headers = {
     'content-type': "application/json",
+    'accept': "application/json",
+    'authorization': "application/json",
     'cache-control': "no-cache", #?
     'postman-token': "830323d5-1a21-4458-50d7-e0c0b3bb55eb" #?
     }
 
 #model specific urls
-bach_url
-marcus_url
-park_url
+bach_url = url + "/fk4057tv7z"
+marcus_url = url + "/fk4x92gk0r"
+park_url = url + "/fk4r49xd2g"
 
 
+#read in excel spreadsheet
+#assign values to variables
 
 class patient:
 	"""A patient class containing all model variables"""
@@ -55,13 +59,13 @@ class patient:
 		id.park_fasting_gluc = u
 
 
-
 #how to make it patient specific/does it need to be patient specific if it is called line by line 
 	#and automatically written to the spreadsheet
 
  def bach(id, bach_age, bach_cpd, bach_yrs_smok, bach_yrs_quit, bach_asbestos, bach_sex, 
 		bach_quit):
 	
+
 
 	payload = "{\"age\":bach_age, \"cpd\":bach_cpd, \"yrsSmok\":bach_yrs_smok, \
 		\"yrsQuit\":bach_yrs_quit, \"asbestos\":bach_asbestos, \"sex\":bach_sex, \"quit\":bach_quit}" 
@@ -81,7 +85,7 @@ def marcus(id, marcus_age, marcus_sex, marcus_smok_durat, marcus_copd, marcus_pr
 		\"copd\":marcus_copd,\"priorDiag\":marcus_prior_diag,\"earlyOnset\":marcus_early_onset,\
 		\"lateOnset\":marcus_late_onset}"
 
-	response = requests.request("POST", url, data=payload, headers=headers)
+	response = requests.request("POST", marcus_url, data=payload, headers=headers)
 	marcus_data = json.loads(response.content)
 
 	return marcus_data
@@ -94,7 +98,7 @@ def park(id, park_age, park_smok_status, park_asi, park_bmi, park_phys_activ, pa
 		\"bmi\":park_bmi,\"physActiv\":park_phys_activ,\"fastingGluc\":park_fasting_gluc}"
 
 
-	response = requests.request("POST", url, data=payload, headers=headers)
+	response = requests.request("POST", park_url, data=payload, headers=headers)
 	park_data = json.loads(response.content)
 
 	return park_data
